@@ -20,5 +20,5 @@ Akshat Jain 2K22/CO/42
 |8|A Program IMplementing Proiority Scheduling|[priority-scheduling.cpp](priority-scheduling.cpp)|
 |9|A Program Demonstrating the Reader-Writer Problem|[reader-writer.cpp](reader-writer.cpp)|
 |10|A Program Demonstrating Round Robin Scheduling|[round-robin.cpp](round-robin.cpp)|
-|11| Program Demonstrating SJF Scheduling|[shorted-job-first.cpp](shorted-job-first.cpp)|
+|11| Program Demonstrating SJF Scheduling|[shortest-job-first.cpp](shortest-job-first.cpp)|
 |12|A Program Demonstrating SRTF Scheduling|[shortest-remaining-time-first.cpp](shortest-remaining-time-first.cpp)|
