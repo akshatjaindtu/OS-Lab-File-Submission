@@ -16,7 +16,6 @@ bool isSafe(int process_id, const vector<int>& request) {
     vector<int> work = available;
     vector<bool> finish(MAX_PROCESSES, false);
 
-    // Try to allocate the requested resources temporarily
     for (int i = 0; i < MAX_RESOURCES; ++i) {
         work[i] -= request[i];
         allocation[process_id][i] += request[i];
@@ -45,15 +44,14 @@ bool isSafe(int process_id, const vector<int>& request) {
             }
         }
         if (!found) {
-            break; // System is in an unsafe state
+            break;
         }
     }
 
     // Restore the state of the system
     if (count == MAX_PROCESSES) {
-        return true; // Request can be granted
+        return true;
     } else {
-        // Request cannot be granted, restore the state of the system
         for (int i = 0; i < MAX_RESOURCES; ++i) {
             allocation[process_id][i] -= request[i];
             need[process_id][i] += request[i];
@@ -65,7 +63,7 @@ bool isSafe(int process_id, const vector<int>& request) {
 bool requestResources(int process_id, const vector<int>& request) {
     for (int i = 0; i < MAX_RESOURCES; ++i) {
         if (request[i] > need[process_id][i] || request[i] > available[i]) {
-            return false; // Request exceeds maximum demand or available resources
+            return false;
         }
     }
 
@@ -75,20 +73,18 @@ bool requestResources(int process_id, const vector<int>& request) {
             allocation[process_id][i] += request[i];
             need[process_id][i] -= request[i];
         }
-        return true; // Request granted
+        return true; 
     } else {
-        return false; // Request denied
+        return false;
     }
 }
 
 int main() {
-    // Initialize available resources
     cout << "Enter available resources:" << endl;
     for (int i = 0; i < MAX_RESOURCES; ++i) {
         cin >> available[i];
     }
 
-    // Initialize maximum resources needed by each process
     cout << "Enter maximum resources needed by each process:" << endl;
     for (int i = 0; i < MAX_PROCESSES; ++i) {
         cout << "Process " << i << ": ";
@@ -98,7 +94,6 @@ int main() {
         }
     }
 
-    // Process resource requests
     int process_id;
     vector<int> request(MAX_RESOURCES);
     cout << "Enter process id and requested resources:" << endl;
